@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简单页面</title>
+    <script>
+        function launchHonorPlus() {
+        console.log("页面已加载");
+            if (navigator.userAgent.match(/android/i)) {
+                var state = null;
+                console.log("android system");
+                try {
+                    // scheme://host/path
+                    // honorplus://retail.honorplus.com/mine/router
+                    console.log("trying to launch honor plus...");
+                    window.location = 'honorplus://retail.honorplus.com/mine'; //scheme链接
+                    window.setTimeout(function() {
+                        window.location = "https://www.baidu.com"; //android下载地址
+                    }, 1000);
+                } catch (error) {
+                    console.error("发生错误:", error.message); // 打印错误消息
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>欢迎来到我的简单页面</h1>
+<p>这是一个快速部署的示例页面。</p>
+<button onclick="launchHonorPlus()">拉起荣耀+</button>
+</body>
+</html>
